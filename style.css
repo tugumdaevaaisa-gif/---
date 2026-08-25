@@ -6,8 +6,8 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #F5F5DC; /* кремовый */
+    font-family: 'Manrope', sans-serif;
+    background: #F5F5DC;
     color: #1a1a1a;
     line-height: 1.6;
 }
@@ -28,30 +28,35 @@ body {
 }
 
 .logo {
-    font-family: 'Caveat', cursive;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #8B0000; /* вишнёвый */
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #8B0000;
+    letter-spacing: 1px;
 }
 
 .logo-subtitle {
-    font-size: 0.8rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
     color: #6B5B4E;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
 /* ===== ОБЩИЕ ЗАГОЛОВКИ ===== */
 .script-title {
-    font-family: 'Caveat', cursive;
-    font-size: 2.5rem;
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    font-weight: 400;
     color: #8B0000;
     margin-bottom: 15px;
     text-align: center;
+    line-height: 1.2;
 }
 
 /* ===== БЛОК "МЫ ЖЕНИМСЯ" ===== */
 .hero {
-    background: #FFF8E7; /* светлый крем */
+    background: #FFF8E7;
     padding: 40px 0;
     position: relative;
 }
@@ -94,8 +99,8 @@ body {
 .polaroid-caption {
     display: block;
     text-align: center;
-    font-family: 'Caveat', cursive;
-    font-size: 1.2rem;
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.5rem;
     color: #5a4a3f;
     margin-top: 8px;
 }
@@ -108,9 +113,10 @@ body {
 }
 
 .story-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
     max-width: 500px;
     margin: 0 auto 15px;
-    font-size: 1rem;
     color: #333;
 }
 
@@ -123,7 +129,7 @@ body {
 
 /* ===== БЛОК ДАТЫ (вишнёвый) ===== */
 .date-block {
-    background: #8B0000; /* вишнёвый */
+    background: #8B0000;
     color: #F5F5DC;
     padding: 40px 0;
     text-align: center;
@@ -134,48 +140,61 @@ body {
 }
 
 .date-text {
-    font-size: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
     margin-bottom: 25px;
 }
 
 .calendar {
-    background: rgba(255,255,255,0.1);
-    border-radius: 12px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 16px;
     padding: 20px;
     max-width: 320px;
     margin: 0 auto;
     position: relative;
+    border: 1px solid rgba(245,245,220,0.2);
 }
 
 .calendar-header {
-    font-size: 1.2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
     margin-bottom: 15px;
+    letter-spacing: 2px;
 }
 
 .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
+    gap: 6px;
 }
 
 .day {
-    font-weight: bold;
-    font-size: 0.7rem;
-    color: #F5F5DC;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: rgba(245,245,220,0.8);
+    text-transform: uppercase;
 }
 
 .day-num {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     padding: 5px;
     color: #F5F5DC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.day-num.empty {
+    visibility: hidden;
 }
 
 .day-num.selected {
     background: #fff;
     color: #8B0000;
-    border-radius: 50%;
     font-weight: bold;
     box-shadow: 0 0 0 3px #fff;
+    transform: scale(1.1);
 }
 
 .calendar-heart {
@@ -183,10 +202,12 @@ body {
     bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 2rem;
+    font-size: 2.2rem;
     background: #F5F5DC;
     border-radius: 50%;
     padding: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    line-height: 1;
 }
 
 /* ===== ЛОКАЦИЯ ===== */
@@ -204,6 +225,8 @@ body {
 }
 
 .location-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
     max-width: 400px;
     margin: 0 auto;
 }
@@ -212,15 +235,18 @@ body {
     background: #8B0000;
     color: #fff;
     border: none;
-    padding: 12px 25px;
+    padding: 14px 30px;
     border-radius: 30px;
     font-size: 1rem;
+    font-family: 'Manrope', sans-serif;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 12px rgba(139,0,0,0.3);
 }
 
 .btn-map:hover {
     background: #6b0000;
+    transform: translateY(-2px);
 }
 
 /* ===== ТАЙМИНГ ===== */
@@ -238,19 +264,20 @@ body {
 
 .timing-item {
     background: #fff;
-    border-radius: 10px;
+    border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
 .timing-icon {
-    font-size: 2rem;
+    font-size: 2.5rem;
     display: block;
     margin-bottom: 8px;
 }
 
 .timing-text {
-    font-size: 0.9rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
     color: #444;
 }
 
@@ -262,13 +289,15 @@ body {
 }
 
 .rsvp-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
     margin-bottom: 25px;
 }
 
 .rsvp-form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
     max-width: 400px;
     margin: 0 auto;
 }
@@ -277,37 +306,47 @@ body {
     text-align: left;
     font-weight: 500;
     margin-top: 5px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.9rem;
 }
 
 .rsvp-form input[type="text"],
 .rsvp-form input[type="number"] {
-    padding: 12px;
+    padding: 14px;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 1rem;
+    font-family: 'Manrope', sans-serif;
 }
 
 .radio-group {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     margin-top: 5px;
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
 }
 
 .radio-group input {
     width: auto;
+    accent-color: #8B0000;
 }
 
 .btn-rsvp {
     background: #8B0000;
     color: #fff;
     border: none;
-    padding: 14px;
+    padding: 16px;
     border-radius: 30px;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    font-family: 'Manrope', sans-serif;
     cursor: pointer;
     transition: background 0.3s;
-    margin-top: 10px;
+    margin-top: 15px;
+    box-shadow: 0 4px 12px rgba(139,0,0,0.3);
 }
 
 .btn-rsvp:hover {
@@ -320,6 +359,8 @@ body {
     padding: 15px;
     border-radius: 8px;
     color: #2e6b2e;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
 }
 
 /* ===== ФУТЕР ===== */
@@ -330,10 +371,16 @@ body {
     text-align: center;
 }
 
+.footer p:first-child {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.5rem;
+}
+
 .footer-names {
-    font-family: 'Caveat', cursive;
-    font-size: 1.8rem;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
     margin: 10px 0;
+    color: #F5F5DC;
 }
 
 .footer-links a {
@@ -341,16 +388,18 @@ body {
     text-decoration: none;
     margin: 0 10px;
     font-size: 0.9rem;
+    font-family: 'Manrope', sans-serif;
 }
 
 .footer-logo {
     margin-top: 20px;
-    font-family: 'Caveat', cursive;
-    font-size: 1.5rem;
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8rem;
     opacity: 0.7;
+    color: #F5F5DC;
 }
 
-/* ===== АДАПТИВНОСТЬ (мобильные) ===== */
+/* ===== АДАПТИВНОСТЬ ===== */
 @media (max-width: 480px) {
     .hero-content {
         flex-direction: column;
