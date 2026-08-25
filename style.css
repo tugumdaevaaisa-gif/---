@@ -1,0 +1,361 @@
+/* ===== СБРОС СТИЛЕЙ ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #F5F5DC; /* кремовый */
+    color: #1a1a1a;
+    line-height: 1.6;
+}
+
+/* ===== КОНТЕЙНЕР ===== */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ===== ХЕДЕР ===== */
+.header {
+    background: #F5F5DC;
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #E0D6C8;
+}
+
+.logo {
+    font-family: 'Caveat', cursive;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #8B0000; /* вишнёвый */
+}
+
+.logo-subtitle {
+    font-size: 0.8rem;
+    color: #6B5B4E;
+    letter-spacing: 2px;
+}
+
+/* ===== ОБЩИЕ ЗАГОЛОВКИ ===== */
+.script-title {
+    font-family: 'Caveat', cursive;
+    font-size: 2.5rem;
+    color: #8B0000;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* ===== БЛОК "МЫ ЖЕНИМСЯ" ===== */
+.hero {
+    background: #FFF8E7; /* светлый крем */
+    padding: 40px 0;
+    position: relative;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.hero-children img {
+    max-height: 150px;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+.polaroid {
+    background: #fff;
+    padding: 10px 10px 25px;
+    border-radius: 4px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    transform: rotate(-3deg);
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.polaroid-img {
+    display: block;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.polaroid-caption {
+    display: block;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    color: #5a4a3f;
+    margin-top: 8px;
+}
+
+/* ===== БЛОК "ИСТОРИЯ" ===== */
+.story {
+    background: #F5F5DC;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.story-text {
+    max-width: 500px;
+    margin: 0 auto 15px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.hand-drawn-arrow {
+    font-size: 2rem;
+    color: #8B0000;
+    transform: rotate(-10deg);
+    display: inline-block;
+}
+
+/* ===== БЛОК ДАТЫ (вишнёвый) ===== */
+.date-block {
+    background: #8B0000; /* вишнёвый */
+    color: #F5F5DC;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.date-block .script-title {
+    color: #F5F5DC;
+}
+
+.date-text {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+
+.calendar {
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 320px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.calendar-header {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.day {
+    font-weight: bold;
+    font-size: 0.7rem;
+    color: #F5F5DC;
+}
+
+.day-num {
+    font-size: 0.9rem;
+    padding: 5px;
+    color: #F5F5DC;
+}
+
+.day-num.selected {
+    background: #fff;
+    color: #8B0000;
+    border-radius: 50%;
+    font-weight: bold;
+    box-shadow: 0 0 0 3px #fff;
+}
+
+.calendar-heart {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    background: #F5F5DC;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+/* ===== ЛОКАЦИЯ ===== */
+.location {
+    background: #F5F5DC;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.location-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.location-text {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.btn-map {
+    background: #8B0000;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-map:hover {
+    background: #6b0000;
+}
+
+/* ===== ТАЙМИНГ ===== */
+.timing {
+    background: #FFF8E7;
+    padding: 40px 0;
+}
+
+.timing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    text-align: center;
+}
+
+.timing-item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.timing-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.timing-text {
+    font-size: 0.9rem;
+    color: #444;
+}
+
+/* ===== RSVP ===== */
+.rsvp {
+    background: #F5F5DC;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.rsvp-text {
+    margin-bottom: 25px;
+}
+
+.rsvp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.rsvp-form label {
+    text-align: left;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.rsvp-form input[type="text"],
+.rsvp-form input[type="number"] {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.radio-group input {
+    width: auto;
+}
+
+.btn-rsvp {
+    background: #8B0000;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.btn-rsvp:hover {
+    background: #6b0000;
+}
+
+.rsvp-success {
+    margin-top: 20px;
+    background: #E6F7E6;
+    padding: 15px;
+    border-radius: 8px;
+    color: #2e6b2e;
+}
+
+/* ===== ФУТЕР ===== */
+.footer {
+    background: #8B0000;
+    color: #F5F5DC;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer-names {
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem;
+    margin: 10px 0;
+}
+
+.footer-links a {
+    color: #F5F5DC;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9rem;
+}
+
+.footer-logo {
+    margin-top: 20px;
+    font-family: 'Caveat', cursive;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+/* ===== АДАПТИВНОСТЬ (мобильные) ===== */
+@media (max-width: 480px) {
+    .hero-content {
+        flex-direction: column;
+    }
+    .timing-grid {
+        grid-template-columns: 1fr;
+    }
+}
