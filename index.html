@@ -7,7 +7,342 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ==================== ОБЩИЕ СТИЛИ ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #FBF7F2;
+            color: #2D2D2D;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .script-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            font-weight: 400;
+            color: #8B3A3A;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* ==================== ХЕДЕР ==================== */
+        .header {
+            padding: 25px 0;
+            text-align: center;
+            border-bottom: 1px solid #E8DDD3;
+        }
+        .logo {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            color: #8B3A3A;
+        }
+        .logo-subtitle {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #A07A6E;
+            margin-top: -5px;
+        }
+
+        /* ==================== HERO (МЫ ЖЕНИМСЯ) ==================== */
+        .hero {
+            padding: 50px 0 30px;
+            text-align: center;
+        }
+        .hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .hero-children {
+            flex: 1 1 200px;
+            max-width: 250px;
+        }
+        .children-silhouette {
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+        }
+        .hero-photo {
+            flex: 1 1 250px;
+        }
+        .polaroid {
+            background: #fff;
+            padding: 12px 12px 40px 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: inline-block;
+            border-radius: 4px;
+            transform: rotate(-2deg);
+        }
+        .polaroid-img {
+            width: 100%;
+            max-width: 280px;
+            display: block;
+            border-radius: 2px;
+        }
+        .polaroid-caption {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.3rem;
+            color: #8B3A3A;
+        }
+
+        /* ==================== СТОРИ (УЗНАЛИ?) ==================== */
+        .story {
+            padding: 40px 0;
+            background: #F4EDE6;
+        }
+        .story-text {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #3D3D3D;
+            font-weight: 300;
+        }
+        .hand-drawn-arrow {
+            font-size: 2.5rem;
+            text-align: center;
+            color: #8B3A3A;
+            margin-top: 15px;
+            opacity: 0.6;
+        }
+
+        /* ==================== ДАТА (вишнёвый фон) ==================== */
+        .date-block {
+            padding: 40px 0;
+            background: #8B3A3A;
+            color: #fff;
+        }
+        .date-block .script-title {
+            color: #FAD7A0;
+        }
+        .date-text {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .calendar {
+            max-width: 400px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(4px);
+            padding: 20px;
+            border-radius: 16px;
+        }
+        .calendar-header {
+            text-align: center;
+            font-weight: 500;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+            text-align: center;
+        }
+        .day {
+            font-weight: 600;
+            font-size: 0.7rem;
+            color: #FAD7A0;
+        }
+        .day-num {
+            font-size: 0.9rem;
+            padding: 6px 0;
+            border-radius: 50%;
+            background: transparent;
+            transition: background 0.2s;
+        }
+        .day-num.selected {
+            background: #FAD7A0;
+            color: #8B3A3A;
+            font-weight: 700;
+        }
+        .day-num.empty {
+            visibility: hidden;
+        }
+        .calendar-heart {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 1.5rem;
+        }
+
+        /* ==================== ЛОКАЦИЯ ==================== */
+        .location {
+            padding: 40px 0;
+            background: #FBF7F2;
+        }
+        .location-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .location-text {
+            max-width: 500px;
+            text-align: center;
+            font-size: 1rem;
+        }
+        .btn-map {
+            background: #8B3A3A;
+            color: #fff;
+            border: none;
+            padding: 12px 36px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-map:hover {
+            background: #6f2d2d;
+        }
+
+        /* ==================== ТАЙМИНГ (ВО СКОЛЬКО?) ==================== */
+        .timing {
+            padding: 40px 0;
+            background: #F4EDE6;
+        }
+        .timing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .timing-item {
+            background: #fff;
+            padding: 18px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+        .timing-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .timing-text {
+            font-weight: 500;
+        }
+
+        /* ==================== RSVP ==================== */
+        .rsvp {
+            padding: 40px 0;
+            background: #FBF7F2;
+        }
+        .rsvp-text {
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+        .rsvp-form {
+            max-width: 450px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .rsvp-form label {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .rsvp-form input[type="text"],
+        .rsvp-form input[type="number"] {
+            padding: 10px 14px;
+            border: 1px solid #D3C6BC;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .radio-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 400;
+            cursor: pointer;
+        }
+        .radio-group input[type="radio"] {
+            width: 18px;
+            height: 18px;
+        }
+        .btn-rsvp {
+            background: #8B3A3A;
+            color: #fff;
+            border: none;
+            padding: 14px;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 6px;
+        }
+        .btn-rsvp:hover {
+            background: #6f2d2d;
+        }
+        .rsvp-success {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #8B3A3A;
+            padding: 20px;
+            background: #F4EDE6;
+            border-radius: 12px;
+        }
+
+        /* ==================== ФУТЕР ==================== */
+        .footer {
+            background: #2D2D2D;
+            color: #E8DDD3;
+            padding: 30px 0;
+            text-align: center;
+        }
+        .footer-names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            color: #FAD7A0;
+        }
+        .footer-links a {
+            color: #E8DDD3;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+        .footer-links a:hover {
+            color: #FAD7A0;
+        }
+        .footer-logo {
+            margin-top: 15px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        /* ==================== АДАПТИВ ==================== */
+        @media (max-width: 600px) {
+            .script-title { font-size: 2.4rem; }
+            .hero-content { flex-direction: column; }
+            .timing-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
 </head>
 <body>
 
@@ -25,11 +360,9 @@
             <h1 class="script-title">Мы женимся!</h1>
             <div class="hero-content">
                 <div class="hero-children">
-                    <!-- вставьте силуэты детей (jpg) -->
                     <img src="images/children.jpg" alt="дети" class="children-silhouette">
                 </div>
                 <div class="hero-photo">
-                    <!-- фото пары в полароидной рамке -->
                     <div class="polaroid">
                         <img src="images/couple.jpg" alt="пара" class="polaroid-img">
                         <span class="polaroid-caption">Имя & Имя</span>
@@ -53,49 +386,22 @@
         <div class="container">
             <h2 class="script-title">Ждём вас</h2>
             <p class="date-text">12 сентября 2026 года</p>
-            <!-- Интерактивный календарь с сердцем -->
             <div class="calendar">
                 <div class="calendar-header">Сентябрь 2026</div>
                 <div class="calendar-grid">
-                    <span class="day">П</span>
-                    <span class="day">В</span>
-                    <span class="day">С</span>
-                    <span class="day">Ч</span>
-                    <span class="day">П</span>
-                    <span class="day">С</span>
-                    <span class="day">В</span>
-                    <!-- Пустые ячейки перед 1 сентября (если нужно) -->
+                    <span class="day">П</span><span class="day">В</span><span class="day">С</span>
+                    <span class="day">Ч</span><span class="day">П</span><span class="day">С</span><span class="day">В</span>
                     <span class="day-num empty"></span>
-                    <span class="day-num">1</span>
-                    <span class="day-num">2</span>
-                    <span class="day-num">3</span>
-                    <span class="day-num">4</span>
-                    <span class="day-num">5</span>
-                    <span class="day-num">6</span>
-                    <span class="day-num">7</span>
-                    <span class="day-num">8</span>
-                    <span class="day-num">9</span>
-                    <span class="day-num">10</span>
-                    <span class="day-num">11</span>
-                    <span class="day-num selected">12</span>
-                    <span class="day-num">13</span>
-                    <span class="day-num">14</span>
-                    <span class="day-num">15</span>
-                    <span class="day-num">16</span>
-                    <span class="day-num">17</span>
-                    <span class="day-num">18</span>
-                    <span class="day-num">19</span>
-                    <span class="day-num">20</span>
-                    <span class="day-num">21</span>
-                    <span class="day-num">22</span>
-                    <span class="day-num">23</span>
-                    <span class="day-num">24</span>
-                    <span class="day-num">25</span>
-                    <span class="day-num">26</span>
-                    <span class="day-num">27</span>
-                    <span class="day-num">28</span>
-                    <span class="day-num">29</span>
-                    <span class="day-num">30</span>
+                    <span class="day-num">1</span><span class="day-num">2</span><span class="day-num">3</span>
+                    <span class="day-num">4</span><span class="day-num">5</span><span class="day-num">6</span>
+                    <span class="day-num">7</span><span class="day-num">8</span><span class="day-num">9</span>
+                    <span class="day-num">10</span><span class="day-num">11</span><span class="day-num selected">12</span>
+                    <span class="day-num">13</span><span class="day-num">14</span><span class="day-num">15</span>
+                    <span class="day-num">16</span><span class="day-num">17</span><span class="day-num">18</span>
+                    <span class="day-num">19</span><span class="day-num">20</span><span class="day-num">21</span>
+                    <span class="day-num">22</span><span class="day-num">23</span><span class="day-num">24</span>
+                    <span class="day-num">25</span><span class="day-num">26</span><span class="day-num">27</span>
+                    <span class="day-num">28</span><span class="day-num">29</span><span class="day-num">30</span>
                 </div>
                 <div class="calendar-heart">❤️</div>
             </div>
@@ -112,7 +418,7 @@
                     <span class="polaroid-caption">Усадьба «Тихий берег»</span>
                 </div>
                 <p class="location-text">Мы будем ждать вас в живописном месте на берегу озера. Адрес: ул. Береговая, 15</p>
-                <button class="btn-map">Открыть карту</button>
+                <button class="btn-map" onclick="window.open('https://go.2gis.com/your-link','_blank')">Открыть карту</button>
             </div>
         </div>
     </section>
@@ -181,6 +487,60 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // ==================== ОТПРАВКА RSVP ====================
+        document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const form = this;
+            const successDiv = document.getElementById('rsvp-success');
+
+            // Собираем данные
+            const name = document.getElementById('name').value.trim();
+            const guests = document.getElementById('guests').value;
+            const attendance = document.querySelector('input[name="attendance"]:checked')?.value || '';
+
+            if (!name) {
+                alert('Пожалуйста, введите ваше имя.');
+                return;
+            }
+
+            // Подготавливаем FormData
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('guests', guests);
+            formData.append('attendance', attendance);
+            formData.append('access_key', 'c2bf3689-190a-48e3-8a6e-c9f13ad88314');
+            formData.append('subject', 'Новый RSVP с сайта-приглашения!');
+
+            // Отключаем кнопку, чтобы не было двойной отправки
+            const btn = form.querySelector('.btn-rsvp');
+            btn.disabled = true;
+            btn.textContent = 'Отправка...';
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    form.style.display = 'none';
+                    successDiv.style.display = 'block';
+                } else {
+                    alert('Ошибка: ' + (data.message || 'Не удалось отправить. Попробуйте позже.'));
+                    btn.disabled = false;
+                    btn.textContent = 'Отправить';
+                }
+            })
+            .catch(error => {
+                alert('Ошибка сети. Проверьте подключение к интернету.');
+                btn.disabled = false;
+                btn.textContent = 'Отправить';
+                console.error(error);
+            });
+        });
+    </script>
+
 </body>
 </html>
