@@ -16,7 +16,7 @@
         }
         body {
             font-family: 'Manrope', sans-serif;
-            background-color: #FBF7F2;
+            background-color: #F5F0EB; /* новый фон */
             color: #2D2D2D;
             line-height: 1.6;
         }
@@ -39,6 +39,7 @@
             padding: 25px 0;
             text-align: center;
             border-bottom: 1px solid #E8DDD3;
+            background: #F5F0EB;
         }
         .logo {
             font-family: 'Great Vibes', cursive;
@@ -57,6 +58,7 @@
         .hero {
             padding: 50px 0 30px;
             text-align: center;
+            background-color: #FDF8F3; /* чуть светлее основного фона */
         }
         .hero-content {
             display: flex;
@@ -69,15 +71,40 @@
         .hero-children {
             flex: 1 1 200px;
             max-width: 250px;
+            cursor: pointer;
+            transition: filter 0.4s ease, transform 0.3s ease;
         }
-        .children-silhouette {
+        .hero-children img {
             width: 100%;
             display: block;
             border-radius: 12px;
+            filter: blur(0);
+            transition: filter 0.4s ease, transform 0.3s ease;
         }
+        .hero-children.blurred img {
+            filter: blur(4px);
+        }
+        .hero-children.active img {
+            filter: blur(0);
+            transform: scale(1.02);
+        }
+
         .hero-photo {
             flex: 1 1 250px;
+            cursor: pointer;
+            transition: filter 0.4s ease, transform 0.3s ease;
         }
+        .hero-photo .polaroid {
+            transition: filter 0.4s ease, transform 0.3s ease;
+        }
+        .hero-photo.blurred .polaroid {
+            filter: blur(4px);
+        }
+        .hero-photo.active .polaroid {
+            filter: blur(0);
+            transform: scale(1.02);
+        }
+
         .polaroid {
             background: #fff;
             padding: 12px 12px 40px 12px;
@@ -346,10 +373,10 @@
 </head>
 <body>
 
-    <!-- ХЕДЕР -->
+    <!-- ХЕДЕР (название студии изменено) -->
     <header class="header">
         <div class="container">
-            <div class="logo">The_motion_studio</div>
+            <div class="logo">Synodica.studio</div>
             <div class="logo-subtitle">сайты-пригласительные</div>
         </div>
     </header>
@@ -359,10 +386,12 @@
         <div class="container">
             <h1 class="script-title">Мы женимся!</h1>
             <div class="hero-content">
-                <div class="hero-children">
-                    <img src="images/children.jpg" alt="дети" class="children-silhouette">
+                <!-- Детское фото (кликабельное) -->
+                <div class="hero-children active" id="children-photo">
+                    <img src="images/children.jpg" alt="дети">
                 </div>
-                <div class="hero-photo">
+                <!-- Фото пары (кликабельное) -->
+                <div class="hero-photo" id="couple-photo">
                     <div class="polaroid">
                         <img src="images/couple.jpg" alt="пара" class="polaroid-img">
                         <span class="polaroid-caption">Имя & Имя</span>
@@ -488,6 +517,35 @@
     </footer>
 
     <script>
+        // ==================== ИНТЕРАКТИВ С ФОТО ====================
+        const children = document.getElementById('children-photo');
+        const couple = document.getElementById('couple-photo');
+
+        // По умолчанию дети активны, пара размыта? Нет, по задумке оба чёткие, но мы сделаем, что по клику переключается.
+        // Но чтобы при загрузке оба были чёткими, убираем классы active/blurred.
+        // У children уже есть класс active (для стартового состояния), а couple без классов.
+        // Сделаем так: при клике на children, children получает active, couple получает blurred.
+        // При клике на couple, couple получает active, children получает blurred.
+
+        children.addEventListener('click', function() {
+            // Если уже active, ничего не делаем (или можно сбросить)
+            if (this.classList.contains('active')) return;
+            // Убираем active у couple, добавляем blurred
+            couple.classList.remove('active');
+            couple.classList.add('blurred');
+            // Убираем blurred у children, добавляем active
+            this.classList.remove('blurred');
+            this.classList.add('active');
+        });
+
+        couple.addEventListener('click', function() {
+            if (this.classList.contains('active')) return;
+            children.classList.remove('active');
+            children.classList.add('blurred');
+            this.classList.remove('blurred');
+            this.classList.add('active');
+        });
+
         // ==================== ОТПРАВКА RSVP ====================
         document.getElementById('rsvp-form').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -495,7 +553,6 @@
             const form = this;
             const successDiv = document.getElementById('rsvp-success');
 
-            // Собираем данные
             const name = document.getElementById('name').value.trim();
             const guests = document.getElementById('guests').value;
             const attendance = document.querySelector('input[name="attendance"]:checked')?.value || '';
@@ -505,7 +562,6 @@
                 return;
             }
 
-            // Подготавливаем FormData
             const formData = new FormData();
             formData.append('name', name);
             formData.append('guests', guests);
@@ -513,7 +569,6 @@
             formData.append('access_key', 'c2bf3689-190a-48e3-8a6e-c9f13ad88314');
             formData.append('subject', 'Новый RSVP с сайта-приглашения!');
 
-            // Отключаем кнопку, чтобы не было двойной отправки
             const btn = form.querySelector('.btn-rsvp');
             btn.disabled = true;
             btn.textContent = 'Отправка...';
